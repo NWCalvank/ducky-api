@@ -1,0 +1,19 @@
+version: '3'
+services:
+  db:
+    image: postgres:9.6
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/9.6/data
+  api:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      PGHOST: "db"
+      PGUSER: "postgres"
+      PGDBNAME: "app"
+    depends_on:
+      - db
