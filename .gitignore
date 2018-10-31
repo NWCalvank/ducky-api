@@ -1,3 +1,6 @@
+# A .gitignore file for Git-based
+# Heroku deployment
+
 .DS_Store
 node_modules
 
